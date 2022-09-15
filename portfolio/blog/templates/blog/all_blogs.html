@@ -1,0 +1,16 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<div align="left"><h1>Orkhan has written {{ blogs.count }} blog{{ blogs.count|pluralize }}.</h1></div>
+<div align="center" style="overflow-x:hidden;">
+    {% for blog in blogs %}
+    <img src="{{ blog.image.url }}" width="300" height="250">
+    <hr>
+    <h2><a href="{% url 'blog:detail' blog.id %}">{{ blog.title }}</a></h2>
+    <h5>{{ blog.publish_time }}</h5>
+    <hr>
+    <h3><i>{{ blog.description|striptags|safe|truncatechars:100 }}</i></h3>
+    {% endfor %}
+</div>
+
+{% endblock %}

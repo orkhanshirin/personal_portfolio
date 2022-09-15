@@ -7,3 +7,6 @@ class Blog(models.Model):
     image = models.ImageField(upload_to="blog/images/")
     publish_time = models.TimeField(auto_now=True)
     url = models.URLField(blank=True)
+
+    def __str__(self):
+        return self.title

@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Detail</title>
-</head>
-<body>
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
 <div align="center">
     <h1>{{ blog.title }}</h1>
     <h4>{{ blog.publish_time }}</h4>
 </div>
-{{ blog.description }}
-</body>
-</html>
+<div align="left">
+    {{ blog.description|safe }}
+</div>
+
+{% endblock %}
